@@ -2,6 +2,8 @@
 
 
 ```r
+library(knitr)
+opts_chunk$set(fig.path="figure/")
 options(scipen = 5)
 ```
 
@@ -34,7 +36,7 @@ library(ggplot2)
 qplot(tspd, geom="histogram", xlab="total # of steps taken per day", binwidth=500)
 ```
 
-![plot of chunk unnamed-chunk-3](./figure/unnamed-chunk-3.png) 
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3.png) 
 
 The mean and median are 10766.1887 and 10765 respectively.
 
@@ -42,7 +44,7 @@ The mean and median are 10766.1887 and 10765 respectively.
 
 
 ```r
-aspi <- clean.dt[, mean(steps), by=interval]
+aspi <- dt.no.na[, mean(steps), by=interval]
 max.interval <- which.max(aspi$V1)
 ```
 
@@ -54,7 +56,7 @@ qplot(interval, V1, data=aspi, geom="line",
       ylab="# of steps")
 ```
 
-![plot of chunk unnamed-chunk-5](./figure/unnamed-chunk-5.png) 
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
 
 The maximum of the average number of steps happened in 5-minute interval 104.
 
@@ -85,7 +87,7 @@ qplot(ntspd, geom="histogram", binwidth=500,
       xlab="total # of steps taken per day")
 ```
 
-![plot of chunk unnamed-chunk-8](./figure/unnamed-chunk-8.png) 
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8.png) 
 
 And the new mean and median are 10766.1887 and 10766.1887 respectively.
 
@@ -119,4 +121,4 @@ qplot(interval, V1, data=naspi, geom="line", facets="dow ~ .",
       ylab="# of steps")
 ```
 
-![plot of chunk unnamed-chunk-10](./figure/unnamed-chunk-10.png) 
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 

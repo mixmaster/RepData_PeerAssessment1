@@ -1,11 +1,8 @@
----
-output:
-  html_document:
-    keep_md: yes
----
 # Reproducible Research: Peer Assessment 1
 
 ```{r globaloptions}
+library(knitr)
+opts_chunk$set(fig.path="figure/")
 options(scipen = 5)
 ```
 
@@ -40,7 +37,7 @@ The mean and median are `r mean.tspd` and `r median.tspd` respectively.
 ## What is the average daily activity pattern?
 
 ```{r}
-aspi <- clean.dt[, mean(steps), by=interval]
+aspi <- dt.no.na[, mean(steps), by=interval]
 max.interval <- which.max(aspi$V1)
 ```
 
