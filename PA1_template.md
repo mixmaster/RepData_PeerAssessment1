@@ -45,20 +45,19 @@ The mean and median are 10766.1887 and 10765 respectively.
 
 ```r
 aspi <- dt.no.na[, mean(steps), by=interval]
-max.interval <- which.max(aspi$V1)
+max.interval <- aspi$interval[which.max(aspi$V1)]
 ```
 
 Here is the plot of average daily pattern.
 
 
 ```r
-qplot(interval, V1, data=aspi, geom="line",
-      ylab="# of steps")
+qplot(interval, V1, data=aspi, geom="line", ylab="# of steps")
 ```
 
 ![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
 
-The maximum of the average number of steps happened in 5-minute interval 104.
+The maximum of the average number of steps happened in 5-minute interval 835.
 
 ## Imputing missing values
 

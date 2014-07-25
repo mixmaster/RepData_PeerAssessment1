@@ -38,14 +38,13 @@ The mean and median are `r mean.tspd` and `r median.tspd` respectively.
 
 ```{r}
 aspi <- dt.no.na[, mean(steps), by=interval]
-max.interval <- which.max(aspi$V1)
+max.interval <- aspi$interval[which.max(aspi$V1)]
 ```
 
 Here is the plot of average daily pattern.
 
 ```{r}
-qplot(interval, V1, data=aspi, geom="line",
-      ylab="# of steps")
+qplot(interval, V1, data=aspi, geom="line", ylab="# of steps")
 ```
 
 The maximum of the average number of steps happened in 5-minute interval `r max.interval`.
